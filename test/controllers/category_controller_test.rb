@@ -8,7 +8,7 @@ class CategoryControllerTest < ActionDispatch::IntegrationTest
     end
 
     test "should show categories specification" do
-        get users_path
+        get category_path
         assert_response :success
     end
 end

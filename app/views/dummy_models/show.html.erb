@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @dummy_model %>
+
+<div>
+  <%= link_to "Edit this dummy model", edit_dummy_model_path(@dummy_model) %> |
+  <%= link_to "Back to dummy models", dummy_models_path %>
+
+  <%= button_to "Destroy this dummy model", @dummy_model, method: :delete %>
+</div>

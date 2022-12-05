@@ -13,7 +13,13 @@ class CategoriesController < ApplicationController
     end
 
     def create
-        @category = Category.new()
+        @category = Category.new(category_params)
+        
+        if @category.save
+            redirect_to @category
+        else
+            render :new, status: :unprocessable_entity
+        end
     end
 
     def edit
@@ -21,16 +27,28 @@ class CategoriesController < ApplicationController
     end
 
     def update
-        # @category = Category.find(params[:id])
-        # if @category.update(category_param)
-        #     redirect_to categories_path
-        # else
-        #     render :edit, status :unprocessable_entity
-        # end
+        @category = Category.find(params[:id])
+        if @category.update(category_params)
+            redirect_to @category
+        else
+            render :edit, status: :unprocessable_entity
+        end
     end
 
-    def delete
+    def destroy
+        @category = Category.find(params[:id])
+        @category.destroy
+
+        redirect_to root_path, status: :see_other
     end
 
 
+    private
+        def category_params
+            params.require(:category).permit(:name)
+        
+    end
+    
 end
+
+

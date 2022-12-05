@@ -9,7 +9,7 @@ class CategoryTest < ActiveSupport::TestCase
 
     test "should not save category with category_name less than 5 category" do
         category = Category.new
-        category.name = 'trial'
+        category.name = 'try'
         assert_not category.save, "Saved category with less than 5 category"
     end
 end

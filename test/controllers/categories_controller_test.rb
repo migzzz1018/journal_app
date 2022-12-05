@@ -1,9 +1,10 @@
 require 'test_helper'
 
-class CategoryControllerTest < ActionDispatch::IntegrationTest
+class CategoriesControllerTest < ActionDispatch::IntegrationTest
 
+    
     test "should update categories" do
-        update category_update_path
+        patch category_path(Category.last), params: { category: {name:"trial"}}
         assert_response :redirect
     end
 
@@ -11,4 +12,5 @@ class CategoryControllerTest < ActionDispatch::IntegrationTest
         get category_path
         assert_response :success
     end
+    
 end

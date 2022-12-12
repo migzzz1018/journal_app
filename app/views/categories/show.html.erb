@@ -1,3 +1,10 @@
 <h1><%= @category.id %></h1>
 
 <p><%= @category.name %></p>
+
+<%= render 'tasks/index' %>
+
+<%= link_to "New Task", new_category_task_path(@category) %>
+
+
+<p><%= link_to 'Back', categories_path %></p>

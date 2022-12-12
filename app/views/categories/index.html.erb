@@ -1,10 +1,25 @@
-<h1>Categories</h1>
+<h1>THIS IS THE CATEGORY PAGE </h1>
 
-<ul>
-  <% @categories.each do |category| %>
-    <li>
-      <%= category.name %>
-    </li>
-  <% end %>
 
- </ul>
+<table>
+    <thead>
+        <tr>
+            <td>ID</td>
+            <td>Category</td>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% @categories.each do |category| %>
+            <tr>
+                <td><%= category.id %></td>
+                <td><%= category.name %></td>
+                <td><%= link_to 'Show', "/categories/#{category.id}" %></td>
+                <td><%= link_to 'Edit', "/categories/#{category.id}/edit" %></td>
+                <td><%= button_to 'Delete', "/categories/#{category.id}", method: :delete  %></td>
+             </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<%= link_to "New Category", "/categories/new" %>

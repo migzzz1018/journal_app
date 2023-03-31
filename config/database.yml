@@ -2,14 +2,14 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: postgres
-  password: postgres
-  host: localhost
-  port: 5432
+  # username: postgres
+  # password: postgres
+  # host: localhost
+  # port: 5432
 
 development:
   <<: *default
-  database: journal_app_postgresql
+  database: journal_app_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -20,4 +20,4 @@ test:
 
 production:
   <<: *default
-  database: journal_app_production
+  url: <%= ENV['DATABASE_URL'] %>

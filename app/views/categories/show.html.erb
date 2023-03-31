@@ -1,3 +1,12 @@
-<h1><%= @category.id %></h1>
+<div class="flex flex-col justify-between">
+<div class="flex flex-row justify-between">
+    <div class="flex flex-row justify-between">
+        <p class="pl-2"><%= @category.name %></p>
+    </div>
+    <div class="bg-red-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"><%= link_to "New Task", new_category_task_path(@category) %></div>
+</div>
+        <%= render 'tasks/index' %>
 
-<p><%= @category.name %></p>
+
+    <p class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"><%= link_to 'Back', categories_path %></p>
+</div>

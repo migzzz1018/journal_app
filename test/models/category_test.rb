@@ -12,4 +12,5 @@ class CategoryTest < ActiveSupport::TestCase
         category.name = 'try'
         assert_not category.save, "Saved category with less than 5 category"
     end
+
 end

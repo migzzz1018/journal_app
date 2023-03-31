@@ -19,4 +19,9 @@ module JournalApp
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
   end
+
+  def after_sign_out_path_for scope
+    root_path
+  end
+  
 end
